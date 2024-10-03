@@ -1,0 +1,7 @@
+per ricaricare al volo i moduli possiamo usare la magic key
+
+%load_ext autoreload
+
+si procede poi con il comando 
+
+%autoreload 2
