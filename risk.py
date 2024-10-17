@@ -2,6 +2,28 @@ import pandas as pd
 import numpy as np
 from scipy.stats import norm
 
+
+def annualize_rets(r, periods_per_year):
+    """
+    Annualizes a set of returns
+    We should infer the periods per year
+    but that is currently left as an exercise
+    to the reader :-)
+    """
+    compounded_growth = (1+r).prod()
+    n_periods = r.shape[0]
+    return compounded_growth**(periods_per_year/n_periods)-1
+
+def annualize_vol(r, periods_per_year):
+    """
+    Annualizes the vol of a set of returns
+    We should infer the periods per year
+    but that is currently left as an exercise
+    to the reader :-)
+    """
+    return r.std()*(periods_per_year**0.5)
+
+
 def drawdown(return_series: pd.Series) -> pd.DataFrame:
     """Takes a time series of asset returns.
        returns a DataFrame with columns for
