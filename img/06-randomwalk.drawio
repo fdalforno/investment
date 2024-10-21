@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0" version="24.7.17">
+  <diagram name="Pagina-1" id="uFC1ly_vCrglbG2-42M0">
+    <mxGraphModel dx="989" dy="526" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-18" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="244" y="30" width="411" height="194" as="geometry" />
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-16" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry x="186" y="115" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-11" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry x="106" y="115" width="64" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-4" value="$$ \frac{dS_t}{S_t} = (r + \sigma \lambda)dt + \sigma dW_t $$" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry x="46" y="110" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-5" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="86" y="160" as="sourcePoint" />
+            <mxPoint x="113" y="135" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-6" value="Tasso privo di rischio" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry y="154" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-7" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="166" y="90" as="sourcePoint" />
+            <mxPoint x="147" y="115" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-8" value="Volatilità&lt;br&gt;Rapporto Sharpe" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry x="121" y="50" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-9" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="236" y="169" as="sourcePoint" />
+            <mxPoint x="212" y="139" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-10" value="Volatilità della volatilità" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry x="156" y="164" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-12" value="Rendimento atteso" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry x="55" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-14" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.368;entryY=-0.333;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="96" y="42" as="sourcePoint" />
+            <mxPoint x="115.92000000000007" y="112.00999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-15" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.96;entryY=-0.024;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="301" y="90" as="sourcePoint" />
+            <mxPoint x="223.39999999999986" y="119.27999999999997" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Cl1tPYnl5TsOZTJmFNZU-17" value="Moto Browniano" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="Cl1tPYnl5TsOZTJmFNZU-18">
+          <mxGeometry x="291" y="70" width="120" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
