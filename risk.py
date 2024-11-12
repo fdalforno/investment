@@ -58,3 +58,9 @@ def var_gaussian(r, level=5, modified=False):
                 (2*z**3 - 5*z)*(s**2)/36
             )
     return -(r.mean() + z*r.std(ddof=0))
+
+def discount(t, r):
+    """
+    Compute the price of a pure discount bond that pays $1 at time t where t is in years and r is the annual interest rate
+    """
+    return (1+r)**(-t)
