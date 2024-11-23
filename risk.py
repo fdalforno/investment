@@ -22,6 +22,17 @@ def annualize_vol(r, periods_per_year):
     to the reader :-)
     """
     return r.std()*(periods_per_year**0.5)
+    
+def sharpe_ratio(r, riskfree_rate, periods_per_year):
+    """
+    Computes the annualized sharpe ratio of a set of returns
+    """
+    # convert the annual riskfree rate to per period
+    rf_per_period = (1+riskfree_rate)**(1/periods_per_year)-1
+    excess_ret = r - rf_per_period
+    ann_ex_ret = annualize_rets(excess_ret, periods_per_year)
+    ann_vol = annualize_vol(r, periods_per_year)
+    return ann_ex_ret/ann_vol
 
 
 def drawdown(return_series: pd.Series) -> pd.DataFrame:
@@ -38,6 +49,30 @@ def drawdown(return_series: pd.Series) -> pd.DataFrame:
                          "Previous Peak": previous_peaks, 
                          "Drawdown": drawdowns})
 
+def var_historic(r, level=5):
+    """
+    Returns the historic Value at Risk at a specified level
+    i.e. returns the number such that "level" percent of the returns
+    fall below that number, and the (100-level) percent are above
+    """
+    if isinstance(r, pd.DataFrame):
+        return r.aggregate(var_historic, level=level)
+    elif isinstance(r, pd.Series):
+        return -np.percentile(r, level)
+    else:
+        raise TypeError("Expected r to be a Series or DataFrame")
+        
+def cvar_historic(r, level=5):
+    """
+    Computes the Conditional VaR of Series or DataFrame
+    """
+    if isinstance(r, pd.Series):
+        is_beyond = r <= -var_historic(r, level=level)
+        return -r[is_beyond].mean()
+    elif isinstance(r, pd.DataFrame):
+        return r.aggregate(cvar_historic, level=level)
+    else:
+        raise TypeError("Expected r to be a Series or DataFrame")
 
 
 def var_gaussian(r, level=5, modified=False):
@@ -59,8 +94,25 @@ def var_gaussian(r, level=5, modified=False):
             )
     return -(r.mean() + z*r.std(ddof=0))
 
-def discount(t, r):
+def summary_stats(r, riskfree_rate=0.03):
     """
-    Compute the price of a pure discount bond that pays $1 at time t where t is in years and r is the annual interest rate
+    Return a DataFrame that contains aggregated summary stats for the returns in the columns of r
     """
-    return (1+r)**(-t)
+    ann_r = r.aggregate(annualize_rets, periods_per_year=12)
+    ann_vol = r.aggregate(annualize_vol, periods_per_year=12)
+    ann_sr = r.aggregate(sharpe_ratio, riskfree_rate=riskfree_rate, periods_per_year=12)
+    dd = r.aggregate(lambda r: drawdown(r).Drawdown.min())
+    skew = r.skew()
+    kurt = r.kurtosis()
+    cf_var5 = r.aggregate(var_gaussian, modified=True)
+    hist_cvar5 = r.aggregate(cvar_historic)
+    return pd.DataFrame({
+        "Annualized Return": ann_r,
+        "Annualized Vol": ann_vol,
+        "Skewness": skew,
+        "Kurtosis": kurt,
+        "Cornish-Fisher VaR (5%)": cf_var5,
+        "Historic CVaR (5%)": hist_cvar5,
+        "Sharpe Ratio": ann_sr,
+        "Max Drawdown": dd
+    })
