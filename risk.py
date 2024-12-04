@@ -22,6 +22,13 @@ def annualize_vol(r, periods_per_year):
     to the reader :-)
     """
     return r.std()*(periods_per_year**0.5)
+
+
+def compound(r):
+    """
+    returns the result of compounding the set of returns in r
+    """
+    return np.expm1(np.log1p(r).sum())
     
 def sharpe_ratio(r, riskfree_rate, periods_per_year):
     """
@@ -93,6 +100,12 @@ def var_gaussian(r, level=5, modified=False):
                 (2*z**3 - 5*z)*(s**2)/36
             )
     return -(r.mean() + z*r.std(ddof=0))
+
+def tracking_error(r_a, r_b):
+    """
+    Returns the Tracking Error between the two return series
+    """
+    return np.sqrt(((r_a - r_b)**2).sum())
 
 def summary_stats(r, riskfree_rate=0.03):
     """
