@@ -2,6 +2,12 @@ import numpy as np
 import pandas as pd
 from scipy.optimize import minimize
 
+def sample_cov(r, **kwargs):
+    """
+    Returns the sample covariance of the supplied returns
+    """
+    return r.cov()
+    
 def portfolio_return(weights, returns):
     """
     Computes the return on a portfolio from constituent returns and weights

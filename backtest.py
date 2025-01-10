@@ -28,6 +28,14 @@ def weight_cw(r, cap_weights, **kwargs):
     """
     w = cap_weights.loc[r.index[1]]
     return cap_weights.loc[r.index[1]]
+    
+    
+def sample_cov(r, **kwargs):
+    """
+    Returns the sample covariance of the supplied returns
+    """
+    return r.cov()
+    
 
 def backtest_ws(r, estimation_window=60, weighting=weight_ew, verbose=False, **kwargs):
     """
